@@ -6,13 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageButton
+        android:id="@+id/donutButton"
+        android:layout_width="286dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/donut_image"
+        android:onClick="openDonutMenu"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/coffeeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/donuts" />
+
+    <ImageButton
+        android:id="@+id/coffeeButton"
+        android:layout_width="288dp"
+        android:layout_height="172dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="62dp"
+        android:contentDescription="@string/coffee_image"
+        android:onClick="openCoffeeMenu"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donutButton"
+        app:srcCompat="@drawable/coffee" />
+
+    <ImageButton
+        android:id="@+id/cartButton"
+        android:layout_width="117dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="68dp"
+        android:contentDescription="@string/cart_image"
+        android:onClick="openCart"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton"
+        app:srcCompat="@drawable/cart" />
+
+    <ImageButton
+        android:id="@+id/ordersButton"
+        android:layout_width="103dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="68dp"
+        android:contentDescription="@string/orders_image"
+        android:onClick="openOrders"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton"
+        app:srcCompat="@drawable/clipboard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
