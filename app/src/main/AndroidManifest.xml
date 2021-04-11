@@ -9,6 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RUCafe">
+        <activity
+            android:name=".Database"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Cart"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CoffeeOrder"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DonutOrder"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

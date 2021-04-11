@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">RU Cafe</string>
+    <string name="donut_menu">Donut Menu</string>
+    <string name="coffee_menu">Coffee Menu</string>
+    <string name="cart_menu">Cart</string>
+    <string name="database_menu">Store Orders</string>
+    <string name="donut_flavor">Donut Flavor</string>
+    <string name="quantity">Quantity</string>
+    <string name="subtotal">subtotal</string>
+    <string name="add">Add to Order</string>
     <string name="donut_image">Image of donuts</string>
     <string name="coffee_image">Image of coffee</string>
     <string name="cart_image">Image of shopping cart</string>
