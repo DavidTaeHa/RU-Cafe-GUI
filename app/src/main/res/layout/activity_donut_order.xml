@@ -7,15 +7,13 @@
     tools:context=".DonutOrder">
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/donut_quantity"
         android:layout_width="128dp"
         android:layout_height="52dp"
         android:layout_marginTop="74dp"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="128dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/donut_flavor" />
 
     <TextView
         android:id="@+id/textView2"
@@ -24,12 +22,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="74dp"
         android:layout_marginEnd="78dp"
-        android:layout_marginBottom="128dp"
         android:gravity="center"
         android:text="@string/quantity"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
-        app:layout_constraintEnd_toStartOf="@+id/spinner3"
+        app:layout_constraintEnd_toStartOf="@+id/donut_quantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -43,12 +39,12 @@
         android:gravity="center"
         android:text="@string/donut_flavor"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        app:layout_constraintEnd_toStartOf="@+id/donut_flavor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/donut_flavor"
         android:layout_width="128dp"
         android:layout_height="52dp"
         android:layout_marginTop="68dp"
@@ -56,30 +52,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
-        android:layout_width="414dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="128dp"
-        android:editable="false"
-        android:hint="@string/subtotal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addCoffee"
         android:layout_width="270dp"
         android:layout_height="67dp"
         android:layout_marginStart="69dp"
-        android:layout_marginTop="83dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="146dp"
         android:text="@string/add"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="141dp"
+        app:layout_constraintBottom_toTopOf="@+id/addCoffee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donut_quantity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/donut_subtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="@string/subtotal" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

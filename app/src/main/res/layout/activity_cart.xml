@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".Cart">
 
+    <Button
+        android:id="@+id/place_order"
+        android:layout_width="270dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/place"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+
+    <ListView
+        android:id="@+id/cart"
+        android:layout_width="411dp"
+        android:layout_height="312dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/cart"
+        tools:layout_editor_absoluteX="9dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/subtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="@string/subtotal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        tools:layout_editor_absoluteX="19dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sales_tax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="@string/sales_tax" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/place_order"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+        tools:layout_editor_absoluteX="104dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:hint="@string/total" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
