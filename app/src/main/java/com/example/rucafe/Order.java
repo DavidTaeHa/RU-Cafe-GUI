@@ -1,5 +1,6 @@
 package com.example.rucafe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author David Ha, Andrew McAvoy
  */
-public class Order implements Customizable {
+public class Order implements Customizable, Serializable {
     private ArrayList<MenuItem> items;
     private double subtotal;
     private double taxTotal;
@@ -98,7 +99,7 @@ public class Order implements Customizable {
     @Override
     public boolean add(Object obj) {
         if (obj instanceof MenuItem) {
-            items.add((Coffee) obj);
+            items.add((MenuItem) obj);
             subtotal = subtotal + ((MenuItem) obj).getItemPrice();
             return true;
         }

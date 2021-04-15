@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author David Ha, Andrew McAvoy
  */
-public class StoreOrders implements Customizable{
+public class StoreOrders implements Customizable, Serializable {
     private ArrayList<Order> ordersList;
 
     /**

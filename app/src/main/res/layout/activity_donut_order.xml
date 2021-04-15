@@ -7,13 +7,13 @@
     tools:context=".DonutOrder">
 
     <Spinner
-        android:id="@+id/donut_quantity"
+        android:id="@+id/donutQuantity"
         android:layout_width="128dp"
         android:layout_height="52dp"
         android:layout_marginTop="74dp"
         android:layout_marginEnd="39dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/donut_flavor" />
+        app:layout_constraintTop_toBottomOf="@+id/donutFlavor" />
 
     <TextView
         android:id="@+id/textView2"
@@ -25,7 +25,7 @@
         android:gravity="center"
         android:text="@string/quantity"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/donut_quantity"
+        app:layout_constraintEnd_toStartOf="@+id/donutQuantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -39,26 +39,28 @@
         android:gravity="center"
         android:text="@string/donut_flavor"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/donut_flavor"
+        app:layout_constraintEnd_toStartOf="@+id/donutFlavor"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/donut_flavor"
-        android:layout_width="128dp"
-        android:layout_height="52dp"
+        android:id="@+id/donutFlavor"
+        android:layout_width="171dp"
+        android:layout_height="55dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="39dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addCoffee"
+        android:id="@+id/addDonut"
         android:layout_width="270dp"
         android:layout_height="67dp"
         android:layout_marginStart="69dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="72dp"
+        android:onClick="addDonut"
         android:text="@string/add"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,14 +73,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="141dp"
-        app:layout_constraintBottom_toTopOf="@+id/addCoffee"
+        app:layout_constraintBottom_toTopOf="@+id/addDonut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/donut_quantity">
+        app:layout_constraintTop_toBottomOf="@+id/donutQuantity">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/donut_subtotal"
+            android:id="@+id/donutSubtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:editable="false"
