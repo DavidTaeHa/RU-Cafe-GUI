@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -14,10 +15,18 @@ import android.widget.ImageButton;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private Order order;
+    private StoreOrders storeOrders;
+
+    public static final String ORDER = "com.example.rucafe.MainActivity.ORDER";
+    public static final String STORE_ORDER = "com.example.rucafe.MainActivity.STORE_ORDER";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        order = new Order();
+        storeOrders = new StoreOrders();
     }
 
     /**

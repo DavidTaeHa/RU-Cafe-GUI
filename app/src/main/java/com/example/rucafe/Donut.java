@@ -7,35 +7,17 @@ package com.example.rucafe;
  * @author David Ha, Andrew McAvoy
  */
 public class Donut extends MenuItem {
-    private int donutType;
 
-    final static int YEAST_DONUT = 1;
-    final static int CAKE_DONUT = 2;
-    final static int DONUT_HOLE = 3;
-
-    final static double YEAST_PRICE = 1.39;
-    final static double CAKE_PRICE = 1.59;
-    final static double HOLE_PRICE = 0.33;
+    final static double DONUT_PRICE = 1.39;
 
     /**
      * Constructor for Donut class
      *
      * @param name name of the donut
      * @param quantity number of a donut
-     * @param donutType type of donut
      */
-    public Donut(String name, int quantity, int donutType) {
+    public Donut(String name, int quantity) {
         super(name, quantity);
-        this.donutType = donutType;
-    }
-
-    /**
-     * Getter method for donut type
-     *
-     * @return donut type
-     */
-    public int getDonutType() {
-        return donutType;
     }
 
     /**
@@ -43,17 +25,7 @@ public class Donut extends MenuItem {
      */
     @Override
     public void calculateItemPrice() {
-        switch (donutType) {
-            case YEAST_DONUT:
-                super.setItemPrice(YEAST_PRICE * getQuantity());
-                break;
-            case CAKE_DONUT:
-                super.setItemPrice(CAKE_PRICE * getQuantity());
-                break;
-            case DONUT_HOLE:
-                super.setItemPrice(HOLE_PRICE * getQuantity());
-                break;
-        }
+        super.setItemPrice(DONUT_PRICE * getQuantity());
     }
 
     /**
@@ -63,14 +35,6 @@ public class Donut extends MenuItem {
      * @return textual representation of an instance of a donut class
      */
     public String toString() {
-        switch (donutType) {
-            case YEAST_DONUT:
-                return super.getName() + " (" + super.getQuantity() + ") - Yeast Donut";
-            case CAKE_DONUT:
-                return super.getName() + " (" + super.getQuantity() + ") - Cake Donut";
-            case DONUT_HOLE:
-                return super.getName() + " (" + super.getQuantity() + ") - Donut Hole";
-        }
-        return "ERROR";
+        return super.getName() + " Donut (" + super.getQuantity() + ")";
     }
 }
