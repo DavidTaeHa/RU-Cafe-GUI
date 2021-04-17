@@ -2,12 +2,10 @@ package com.example.rucafe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,14 +22,13 @@ public class DonutOrder extends AppCompatActivity implements AdapterView.OnItemS
     private Spinner donutFlavor;
     private Spinner donutQuantity;
     private TextView subtotal;
-    private Button addCoffee;
 
     private Order order;
 
     final static double DONUT_PRICE = 1.39;
 
     /**
-     * Code to be ran on create
+     * Code to be ran on creation
      *
      * @param savedInstanceState
      */
@@ -41,12 +38,10 @@ public class DonutOrder extends AppCompatActivity implements AdapterView.OnItemS
         setContentView(R.layout.activity_donut_order);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.donut_menu);
-        Intent intent = getIntent();
-        order = (Order) intent.getSerializableExtra("com.example.rucafe.MainActivity.ORDER");
+        order = MainActivity.getOrder();
         donutFlavor = findViewById(R.id.donutFlavor);
         donutQuantity = findViewById(R.id.donutQuantity);
         subtotal = findViewById(R.id.donutSubtotal);
-        addCoffee = findViewById(R.id.addDonut);
         ArrayAdapter<CharSequence> flavors = ArrayAdapter.createFromResource(this, R.array.flavors, android.R.layout.simple_spinner_dropdown_item);
         donutFlavor.setAdapter(flavors);
         ArrayAdapter<CharSequence> quantity = ArrayAdapter.createFromResource(this, R.array.donut_quantity, android.R.layout.simple_spinner_dropdown_item);

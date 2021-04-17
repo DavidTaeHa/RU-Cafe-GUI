@@ -15,8 +15,8 @@ import android.widget.ImageButton;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private Order order;
-    private StoreOrders storeOrders;
+    private static Order order;
+    private static StoreOrders storeOrders;
 
     public static final String ORDER = "com.example.rucafe.MainActivity.ORDER";
     public static final String STORE_ORDER = "com.example.rucafe.MainActivity.STORE_ORDER";
@@ -30,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        order = new Order();
-        storeOrders = new StoreOrders();
+        if(order == null){
+            order = new Order();
+        }
+        if(storeOrders == null){
+            storeOrders = new StoreOrders();
+        }
     }
 
     /**
@@ -41,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void openDonutMenu(View view) {
         Intent intent = new Intent(this, DonutOrder.class);
-        intent.putExtra(ORDER, order);
         startActivity(intent);
     }
 
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void openCart(View view) {
         Intent intent = new Intent(this, Cart.class);
+        //intent.putExtra(ORDER, order);
         startActivity(intent);
     }
 
@@ -73,6 +77,24 @@ public class MainActivity extends AppCompatActivity {
     public void openOrders(View view) {
         Intent intent = new Intent(this, Database.class);
         startActivity(intent);
+    }
+
+    /**
+     * Getter method for the order
+     *
+     * @return
+     */
+    public static Order getOrder(){
+        return order;
+    }
+
+    /**
+     * Getter method for the store orders
+     *
+     * @return
+     */
+    public static StoreOrders getStoreOrder(){
+        return storeOrders;
     }
 
 }
