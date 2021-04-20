@@ -39,6 +39,7 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.cart_menu);
         order = MainActivity.getOrder();
+        storeOrders = MainActivity.getStoreOrder();
         subtotal = findViewById(R.id.subtotal);
         salesTax = findViewById(R.id.sales_tax);
         total = findViewById(R.id.total);
