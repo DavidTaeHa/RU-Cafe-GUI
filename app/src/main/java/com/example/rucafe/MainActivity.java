@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
-import android.widget.ImageButton;
 
 /**
  * Class used to handle all events within the main activity
@@ -90,12 +88,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Getter method for the store orders
      *
-     * @return
+     * @return store order
      */
     public static StoreOrders getStoreOrder(){
         return storeOrders;
     }
 
+    /**
+     * Creates a new order to be added
+     */
     public static void createOrder() {
         MainActivity.order = new Order();
     }

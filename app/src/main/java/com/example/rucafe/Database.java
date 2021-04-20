@@ -10,14 +10,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.text.NumberFormat;
-
 public class Database extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView orderList;
     StoreOrders storeOrders;
     ArrayAdapter<Order> list;
 
+    /**
+     * Code to be ran on creation
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,14 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
         orderList.setOnItemClickListener(this);
     }
 
-
+    /**
+     * Allows cancellation of an order from the database when an order is selected
+     *
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         AlertDialog.Builder warning = new AlertDialog.Builder(Database.this);

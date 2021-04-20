@@ -25,6 +25,11 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
     final static int NONE = 0;
     final static int INVALID = -1;
 
+    /**
+     * Code to be ran on creation
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,11 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         coffee.setQuantity(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()));
     }
 
+    /**
+     * Adds coffee to the cart
+     *
+     * @param view
+     */
     public void addCoffee(View view){
         order.add(coffee);
         Coffee temp = coffee;
@@ -68,6 +78,14 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         toast.show();
     }
 
+    /**
+     * Changes the subtotal of the coffee based off of quantity and size
+     *
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -95,6 +113,11 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         //Note: item selection is set to the item in index 1 by default on creation
     }
 
+    /**
+     * Adds or removes addins to or from the coffee
+     *
+     * @param view
+     */
     public void checked(View view) {
         if(cream.isChecked()){
             coffee.add(getString(R.string.cream));

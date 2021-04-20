@@ -55,6 +55,11 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
         total.setText(formatter.format(order.getTotal()));
     }
 
+    /**
+     * Places order and adds order to the list of store orders
+     *
+     * @param view
+     */
     public void placeStoreOrder(View view){
         if(order.getItems().isEmpty()){
             Toast toast = Toast.makeText(getApplicationContext(), R.string.empty_order, Toast.LENGTH_SHORT);
