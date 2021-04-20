@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void openCart(View view) {
         Intent intent = new Intent(this, Cart.class);
-        //intent.putExtra(ORDER, order);
         startActivity(intent);
     }
 

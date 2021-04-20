@@ -25,8 +25,6 @@ public class DonutOrder extends AppCompatActivity implements AdapterView.OnItemS
 
     private Order order;
 
-    final static double DONUT_PRICE = 1.39;
-
     /**
      * Code to be ran on creation
      *
@@ -44,12 +42,12 @@ public class DonutOrder extends AppCompatActivity implements AdapterView.OnItemS
         subtotal = findViewById(R.id.donutSubtotal);
         ArrayAdapter<CharSequence> flavors = ArrayAdapter.createFromResource(this, R.array.flavors, android.R.layout.simple_spinner_dropdown_item);
         donutFlavor.setAdapter(flavors);
-        ArrayAdapter<CharSequence> quantity = ArrayAdapter.createFromResource(this, R.array.donut_quantity, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> quantity = ArrayAdapter.createFromResource(this, R.array.quantity, android.R.layout.simple_spinner_dropdown_item);
         donutQuantity.setAdapter(quantity);
         donutFlavor.setSelection(0);
         donutQuantity.setSelection(0);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        subtotal.setText(formatter.format(Integer.parseInt(donutQuantity.getSelectedItem().toString()) * DONUT_PRICE));
+        subtotal.setText(formatter.format(Integer.parseInt(donutQuantity.getSelectedItem().toString()) * Donut.DONUT_PRICE));
         donutQuantity.setOnItemSelectedListener(this);
     }
 
@@ -77,7 +75,7 @@ public class DonutOrder extends AppCompatActivity implements AdapterView.OnItemS
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        subtotal.setText(formatter.format(Integer.parseInt(donutQuantity.getSelectedItem().toString()) * DONUT_PRICE));
+        subtotal.setText(formatter.format(Integer.parseInt(donutQuantity.getSelectedItem().toString()) * Donut.DONUT_PRICE));
     }
 
     /**
