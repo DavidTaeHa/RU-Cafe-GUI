@@ -8,6 +8,7 @@
     <string name = "donut_added">Donut(s) has been added to the order</string>
     <string name = "coffee_added">Coffee has been added to the order</string>
     <string name = "order_placed">Order has been placed</string>
+    <string name="empty_order">Order is empty. Please add items to the cart.</string>
     <string-array name = "flavors">
         <item>Chocolate</item>
         <item>Glazed</item>

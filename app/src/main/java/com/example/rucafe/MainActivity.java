@@ -96,4 +96,7 @@ public class MainActivity extends AppCompatActivity {
         return storeOrders;
     }
 
+    public static void createOrder() {
+        MainActivity.order = new Order();
+    }
 }

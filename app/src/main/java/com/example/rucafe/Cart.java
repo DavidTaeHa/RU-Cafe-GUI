@@ -57,7 +57,8 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     public void placeStoreOrder(View view){
         storeOrders.add(order);
-        order = new Order();
+        MainActivity.createOrder();
+        order = MainActivity.getOrder();
         list = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, order.getItems());
         cart.setAdapter(list);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
