@@ -1,6 +1,7 @@
 package com.example.rucafe;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -129,6 +130,13 @@ public class Order implements Customizable, Serializable {
      */
     @Override
     public String toString() {
-        return Integer.toString(orderNumber);
+        String storeOrder = "";
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        storeOrder = storeOrder + "Order " + orderNumber + ":\n";
+        for(MenuItem item : items){
+            storeOrder = storeOrder + item + "\n";
+        }
+        storeOrder = storeOrder + "Total: " + formatter.format(total) + "\n";
+        return storeOrder;
     }
 }

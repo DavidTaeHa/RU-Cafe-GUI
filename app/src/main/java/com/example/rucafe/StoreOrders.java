@@ -62,23 +62,4 @@ public class StoreOrders implements Customizable, Serializable {
         return false;
     }
 
-    /**
-     * Exports and writes orders within the database to a text file
-     *
-     * @throws IOException
-     */
-    public void exportDatabase() throws IOException {
-        File file = new File("export.txt");
-        PrintWriter writer = new PrintWriter(new FileWriter(file));
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        for(Order order : ordersList){
-            writer.println("Order " + order.getOrderNumber() + ":");
-            for(MenuItem item : order.getItems()){
-                writer.println(item);
-            }
-            writer.println("Total: " + formatter.format(order.getTotal()));
-            writer.println("------------------------------------------");
-        }
-        writer.close();
-    }
 }
