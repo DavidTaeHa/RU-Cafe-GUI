@@ -1,6 +1,5 @@
 package com.example.rucafe;
 
-import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -9,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author David Ha, Andrew McAvoy
  */
-public class Order implements Customizable, Serializable {
+public class Order implements Customizable {
     private ArrayList<MenuItem> items;
     private double subtotal;
     private double taxTotal;
@@ -30,15 +29,6 @@ public class Order implements Customizable, Serializable {
         this.total = 0;
         this.orderNumber = orderNumberTracker;
         orderNumberTracker++;
-    }
-
-    /**
-     * Getter method for order number
-     *
-     * @return order number
-     */
-    public int getOrderNumber() {
-        return orderNumber;
     }
 
     /**
