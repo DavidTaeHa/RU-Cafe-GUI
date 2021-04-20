@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Class used to handle all user inputs and outputs within the database activity
+ */
 public class Database extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView orderList;

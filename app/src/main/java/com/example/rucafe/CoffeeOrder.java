@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import java.text.NumberFormat;
 
+/**
+ * Class used to handle all user input and output within the coffee activity
+ *
+ * @author David Ha, Andrew McAvoy
+ */
 public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner size, coffeeQuantity;
