@@ -6,6 +6,7 @@
     <string name="database_menu">Store Orders</string>
     <string name="donut_flavor">Donut Flavor</string>
     <string name = "donut_added">Donut(s) has been added to the order</string>
+    <string name = "coffee_added">Coffee has been added to the order</string>
     <string-array name = "flavors">
         <item>Chocolate</item>
         <item>Glazed</item>

@@ -7,19 +7,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
-public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
+public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner size, coffeeQuantity;
     private CheckBox cream, syrup, milk, caramel, whipped;
     private TextView subtotal;
 
     private Order order;
+    private Coffee coffee;
+
+    final static int NONE = 0;
+    final static int INVALID = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +33,11 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         setTitle(R.string.coffee_menu);
         order = MainActivity.getOrder();
         size = findViewById(R.id.coffee_size);
+        coffeeQuantity = findViewById(R.id.coffee_quantity);
         cream = findViewById(R.id.cream);
         syrup = findViewById(R.id.syrup);
         milk = findViewById(R.id.milk);
-        caramel = findViewById(R.id.whipped);
+        caramel = findViewById(R.id.caramel);
         whipped = findViewById(R.id.whipped);
         subtotal = findViewById(R.id.coffee_subtotal);
         ArrayAdapter<CharSequence> sizeList = ArrayAdapter.createFromResource(this, R.array.coffee_sizes, android.R.layout.simple_spinner_dropdown_item);
@@ -45,26 +50,44 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         subtotal.setText(formatter.format(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()) * Coffee.SHORT_PRICE));
         size.setOnItemSelectedListener(this);
         coffeeQuantity.setOnItemSelectedListener(this);
-        cream.setOnCheckedChangeListener(this);
+        coffee = new Coffee(NONE, INVALID);
+        coffee.setQuantity(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()));
+    }
+
+    public void addCoffee(View view){
+        order.add(coffee);
+        Coffee temp = coffee;
+        coffee = new Coffee(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()), temp.getSize());
+        coffee.calculateItemPrice();
+        cream.setSelected(false);
+        syrup.setSelected(false);
+        milk.setSelected(false);
+        caramel.setSelected(false);
+        whipped.setSelected(false);
+        Toast toast = Toast.makeText(getApplicationContext(), R.string.coffee_added, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        coffee.setQuantity(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()));
         switch(size.getSelectedItem().toString()){
             case "Short":
-                subtotal.setText(formatter.format(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()) * Coffee.SHORT_PRICE));
+                coffee.setSize(Coffee.SHORT);
                 break;
             case "Tall":
-                subtotal.setText(formatter.format(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()) * Coffee.TALL_PRICE));
+                coffee.setSize(Coffee.TALL);
                 break;
             case "Grande":
-                subtotal.setText(formatter.format(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()) * Coffee.GRANDE_PRICE));
+                coffee.setSize(Coffee.GRANDE);
                 break;
             case "Venti":
-                subtotal.setText(formatter.format(Integer.parseInt(coffeeQuantity.getSelectedItem().toString()) * Coffee.VENTI_PRICE));
+                coffee.setSize(Coffee.VENTI);
                 break;
         }
+        coffee.calculateItemPrice();
+        subtotal.setText(formatter.format(coffee.getItemPrice()));
     }
 
     @Override
@@ -72,8 +95,40 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         //Note: item selection is set to the item in index 1 by default on creation
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        
+    public void checked(View view) {
+        if(cream.isChecked()){
+            coffee.add(getString(R.string.cream));
+        }
+        else if(!cream.isChecked()){
+            coffee.remove(getString(R.string.cream));
+        }
+        if(syrup.isChecked()){
+            coffee.add(getString(R.string.syrup));
+        }
+        else if(!syrup.isChecked()){
+            coffee.remove(getString(R.string.syrup));
+        }
+        if(milk.isChecked()){
+            coffee.add(getString(R.string.milk));
+        }
+        else if(!milk.isChecked()){
+            coffee.remove(getString(R.string.milk));
+        }
+        if(caramel.isChecked()){
+            coffee.add(getString(R.string.caramel));
+        }
+        else if(!caramel.isChecked()){
+            coffee.remove(getString(R.string.caramel));
+        }
+        if(whipped.isChecked()){
+            coffee.add(getString(R.string.whipped));
+        }
+        else if(!whipped.isChecked()){
+            coffee.remove(getString(R.string.whipped));
+        }
+        coffee.calculateItemPrice();
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        subtotal.setText(formatter.format(coffee.getItemPrice()));
     }
+
 }

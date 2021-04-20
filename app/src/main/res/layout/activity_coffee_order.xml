@@ -10,6 +10,7 @@
         android:id="@+id/add_coffee"
         android:layout_width="270dp"
         android:layout_height="67dp"
+        android:onClick="addCoffee"
         android:text="@string/add"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +43,7 @@
             android:id="@+id/cream"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="checked"
             android:text="@string/cream"
             android:textSize="18sp" />
 
@@ -49,6 +51,7 @@
             android:id="@+id/syrup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="checked"
             android:text="@string/syrup"
             android:textSize="18sp" />
 
@@ -56,6 +59,7 @@
             android:id="@+id/milk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="checked"
             android:text="@string/milk"
             android:textSize="18sp" />
 
@@ -63,6 +67,7 @@
             android:id="@+id/caramel"
             android:layout_width="123dp"
             android:layout_height="45dp"
+            android:onClick="checked"
             android:text="@string/caramel"
             android:textSize="18sp" />
 
@@ -70,6 +75,7 @@
             android:id="@+id/whipped"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="checked"
             android:text="@string/whipped"
             android:textSize="18sp" />
 

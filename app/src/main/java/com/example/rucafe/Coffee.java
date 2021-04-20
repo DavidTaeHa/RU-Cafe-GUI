@@ -104,7 +104,7 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public boolean add(Object obj) {
-        if (obj instanceof String && !addIn.contains(obj)) {
+        if (!addIn.contains(obj)) {
             addIn.add((String)obj);
             addInQuantity++;
             return true;
@@ -120,7 +120,7 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public boolean remove(Object obj) {
-        if (obj instanceof String && addIn.contains(obj)) {
+        if (addIn.contains(obj)) {
             addIn.remove(obj);
             addInQuantity--;
             return true;
