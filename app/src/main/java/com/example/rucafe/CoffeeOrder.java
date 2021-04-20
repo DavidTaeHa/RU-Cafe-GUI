@@ -108,6 +108,11 @@ public class CoffeeOrder extends AppCompatActivity implements AdapterView.OnItem
         subtotal.setText(formatter.format(coffee.getItemPrice()));
     }
 
+    /**
+     * Handles the situation in case nothing is selected
+     *
+     * @param parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         //Note: item selection is set to the item in index 1 by default on creation

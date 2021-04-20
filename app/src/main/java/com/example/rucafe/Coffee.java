@@ -38,24 +38,6 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     * Getter method for addin quantity
-     *
-     * @return addin quantity
-     */
-    public int getAddInQuantity() {
-        return addInQuantity;
-    }
-
-    /**
-     * Getter method for the coffee addins
-     *
-     * @return list of coffee addins
-     */
-    public ArrayList<String> getAddIn() {
-        return addIn;
-    }
-
-    /**
      * Getter method for the size of the coffee
      *
      * @return size of the coffee
