@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -21,6 +22,7 @@ import java.text.NumberFormat;
  */
 public class Cart extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private Order order;
+    private StoreOrders storeOrders;
     private TextView subtotal, salesTax, total;
     private ListView cart;
     private ArrayAdapter<MenuItem> list;
@@ -50,6 +52,18 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
         subtotal.setText(formatter.format(order.getSubtotal()));
         salesTax.setText(formatter.format(order.getTaxTotal()));
         total.setText(formatter.format(order.getTotal()));
+    }
+
+    public void placeStoreOrder(View view){
+        storeOrders.add(order);
+        order = new Order();
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        subtotal.setText(formatter.format(order.getSubtotal()));
+        salesTax.setText(formatter.format(order.getTaxTotal()));
+        total.setText(formatter.format(order.getTotal()));
+        list.notifyDataSetChanged();
+        Toast toast = Toast.makeText(getApplicationContext(), R.string.order_placed, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     /**
