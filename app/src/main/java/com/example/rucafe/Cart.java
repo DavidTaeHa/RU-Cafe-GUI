@@ -56,6 +56,11 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
     }
 
     public void placeStoreOrder(View view){
+        if(order.getItems().isEmpty()){
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.empty_order, Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         storeOrders.add(order);
         MainActivity.createOrder();
         order = MainActivity.getOrder();
