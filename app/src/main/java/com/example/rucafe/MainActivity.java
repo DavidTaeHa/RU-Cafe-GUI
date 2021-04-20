@@ -16,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private static Order order;
     private static StoreOrders storeOrders;
 
-    public static final String ORDER = "com.example.rucafe.MainActivity.ORDER";
-    public static final String STORE_ORDER = "com.example.rucafe.MainActivity.STORE_ORDER";
 
     /**
      * Code to be ran when the program is first opened
