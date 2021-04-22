@@ -46,4 +46,10 @@
     <string name="coffee_image">Image of coffee</string>
     <string name="cart_image">Image of shopping cart</string>
     <string name="orders_image">Image of list of orders</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="remove_cart">Remove Item</string>
+    <string name="remove_cart_warning">Are you sure you want to remove this item from the cart?</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="cancel_order_warning">Are you sure you want to cancel this order?</string>
 </resources>

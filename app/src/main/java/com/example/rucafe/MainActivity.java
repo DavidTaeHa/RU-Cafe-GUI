@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Getter method for the order
      *
-     * @return
+     * @return order
      */
     public static Order getOrder(){
         return order;

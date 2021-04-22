@@ -3,7 +3,6 @@ package com.example.rucafe;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -48,16 +47,13 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         AlertDialog.Builder warning = new AlertDialog.Builder(Database.this);
-        warning.setTitle("Cancel Order");
-        warning.setMessage("Are you sure you want to cancel this order?");
+        warning.setTitle(R.string.cancel_order);
+        warning.setMessage(R.string.cancel_order_warning);
         Order item = storeOrders.getStoreOrders().get(position);
-        warning.setNegativeButton("No", null);
-        warning.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                storeOrders.remove(item);
-                list.notifyDataSetChanged();
-            }
+        warning.setNegativeButton(R.string.no, null);
+        warning.setPositiveButton(R.string.yes, (dialog, which) -> {
+            storeOrders.remove(item);
+            list.notifyDataSetChanged();
         });
         warning.show();
     }

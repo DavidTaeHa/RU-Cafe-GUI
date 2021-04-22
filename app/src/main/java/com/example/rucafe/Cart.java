@@ -3,7 +3,6 @@ package com.example.rucafe;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -91,22 +90,19 @@ public class Cart extends AppCompatActivity implements AdapterView.OnItemClickLi
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         AlertDialog.Builder warning = new AlertDialog.Builder(Cart.this);
-        warning.setTitle("Remove Item");
-        warning.setMessage("Are you sure you want to remove this item from the cart?");
+        warning.setTitle(R.string.remove_cart);
+        warning.setMessage(R.string.remove_cart_warning);
         MenuItem item = order.getItems().get(position);
-        warning.setNegativeButton("No", null);
-        warning.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                order.remove(item);
-                order.calculateTax();
-                order.calculateTotal();
-                NumberFormat formatter = NumberFormat.getCurrencyInstance();
-                subtotal.setText(formatter.format(order.getSubtotal()));
-                salesTax.setText(formatter.format(order.getTaxTotal()));
-                total.setText(formatter.format(order.getTotal()));
-                list.notifyDataSetChanged();
-            }
+        warning.setNegativeButton(R.string.no, null);
+        warning.setPositiveButton(R.string.yes, (dialog, which) -> {
+            order.remove(item);
+            order.calculateTax();
+            order.calculateTotal();
+            NumberFormat formatter = NumberFormat.getCurrencyInstance();
+            subtotal.setText(formatter.format(order.getSubtotal()));
+            salesTax.setText(formatter.format(order.getTaxTotal()));
+            total.setText(formatter.format(order.getTotal()));
+            list.notifyDataSetChanged();
         });
         warning.show();
     }
