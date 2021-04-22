@@ -126,6 +126,8 @@ public class Order implements Customizable {
         for(MenuItem item : items){
             storeOrder = storeOrder + item + "\n";
         }
+        storeOrder = storeOrder + "Subtotal: " + formatter.format(subtotal) + "\n";
+        storeOrder = storeOrder + "Tax: " + formatter.format(taxTotal) + "\n";
         storeOrder = storeOrder + "Total: " + formatter.format(total) + "\n";
         return storeOrder;
     }

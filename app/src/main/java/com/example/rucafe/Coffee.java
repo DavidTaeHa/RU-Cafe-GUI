@@ -1,4 +1,5 @@
 package com.example.rucafe;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -118,6 +119,7 @@ public class Coffee extends MenuItem implements Customizable {
      */
     @Override
     public String toString() {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String addins = "";
         if(addIn.isEmpty()){
             addins = "No Addins";
@@ -129,13 +131,13 @@ public class Coffee extends MenuItem implements Customizable {
         }
         switch (size) {
             case SHORT:
-                return super.getName() + " (" + super.getQuantity() + "), Short" + ", [" + addins + "]";
+                return super.getName() + " (" + super.getQuantity() + "), Short" + ", [" + addins + "] " + formatter.format(super.getItemPrice());
             case TALL:
-                return super.getName() + " (" + super.getQuantity() + "), Tall" + ", [" + addins + "]";
+                return super.getName() + " (" + super.getQuantity() + "), Tall" + ", [" + addins + "] " + formatter.format(super.getItemPrice());
             case GRANDE:
-                return super.getName() + " (" + super.getQuantity() + "), Grande" + ", [" + addins + "]";
+                return super.getName() + " (" + super.getQuantity() + "), Grande" + ", [" + addins + "] " + formatter.format(super.getItemPrice());
             case VENTI:
-                return super.getName() + " (" + super.getQuantity() + "), Venti" + ", [" + addins + "]";
+                return super.getName() + " (" + super.getQuantity() + "), Venti" + ", [" + addins + "] " + formatter.format(super.getItemPrice());
         }
         return "ERROR";
     }

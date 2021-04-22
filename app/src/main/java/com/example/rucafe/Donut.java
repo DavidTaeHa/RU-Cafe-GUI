@@ -1,5 +1,7 @@
 package com.example.rucafe;
 
+import java.text.NumberFormat;
+
 /**
  * This class extends the MenuItem class and contains common attributes and operations specific to an
  * instance of a donut
@@ -35,6 +37,7 @@ public class Donut extends MenuItem {
      * @return textual representation of an instance of a donut class
      */
     public String toString() {
-        return super.getName() + " Donut (" + super.getQuantity() + ")";
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return super.getName() + " Donut (" + super.getQuantity() + ") " + formatter.format(super.getItemPrice());
     }
 }
